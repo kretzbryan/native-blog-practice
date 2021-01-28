@@ -1,8 +1,9 @@
+import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import IndexScreen from './src/screens/IndexScreen';
-import react from 'react';
 import { BlogProvider } from './src/context/BlogContext';
+// import React from 'react';
 
 const navigator = createStackNavigator(
 	{
