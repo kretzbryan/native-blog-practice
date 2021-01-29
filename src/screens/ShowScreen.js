@@ -10,6 +10,7 @@ const ShowScreen = ({ navigation }) => {
 	return (
 		<View>
 			<Text>This is a show page for {post.title}</Text>
+			<Text> {post.content}</Text>
 		</View>
 	);
 };
