@@ -1,12 +1,32 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
+import BlogPostForm from '../components/BlogPostForm';
+import { Context } from '../context/BlogContext';
 
-const EditScreen = () => {
+const EditScreen = ({ navigation }) => {
+	const id = navigation.getParam('id');
+	const { state } = useContext(Context);
+	const post = state.find((post) => post.id === id);
+
 	return (
-		<View>
-			<Text>This is the Edit Screen</Text>
-		</View>
+		<BlogPostForm
+			initialValues={{ title: post.title, content: post.content }}
+			onSubmit={(title, content) => console.log(title, content)}
+		/>
 	);
 };
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	input: {
+		fontSize: 18,
+		borderWidth: 1,
+		borderColor: 'black',
+		marginBottom: 10,
+		marginHorizontal: 5,
+	},
+	label: {
+		fontSize: 20,
+		marginVertical: 5,
+		marginLeft: 5,
+	},
+});
 export default EditScreen;
