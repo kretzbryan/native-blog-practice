@@ -4,15 +4,12 @@ import { Context } from '../context/BlogContext';
 
 const ShowScreen = ({ navigation }) => {
 	const id = navigation.getParam('id');
-	const { state, getPost } = useContext(Context);
-	const post = state[0];
-	useEffect(() => {
-		getPost(id);
-	}, []);
+	const { state } = useContext(Context);
+	const post = state.find((post) => post.id === id);
 
 	return (
 		<View>
-			<Text>This is a show page for {post.id}</Text>
+			<Text>This is a show page for {post.title}</Text>
 		</View>
 	);
 };
