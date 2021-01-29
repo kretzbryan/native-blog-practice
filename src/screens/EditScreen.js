@@ -5,13 +5,13 @@ import { Context } from '../context/BlogContext';
 
 const EditScreen = ({ navigation }) => {
 	const id = navigation.getParam('id');
-	const { state } = useContext(Context);
+	const { state, editBlogPost } = useContext(Context);
 	const post = state.find((post) => post.id === id);
 
 	return (
 		<BlogPostForm
 			initialValues={{ title: post.title, content: post.content }}
-			onSubmit={(title, content) => console.log(title, content)}
+			onSubmit={(title, content) => editBlogPost(id, title, content)}
 		/>
 	);
 };
