@@ -38,6 +38,18 @@ const IndexScreen = ({ navigation }) => {
 		</View>
 	);
 };
+
+// This adds navigation to the top right header of the Application
+IndexScreen.navigationOptions = ({ navigation }) => {
+	return {
+		headerRight: () => (
+			<TouchableOpacity onPress={() => navigation.navigate('Create')}>
+				<Feather name='plus' size={30} />
+			</TouchableOpacity>
+		),
+	};
+};
+
 const styles = StyleSheet.create({
 	row: {
 		flexDirection: 'row',
