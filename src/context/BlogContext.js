@@ -28,7 +28,6 @@ const getBlogPosts = (dispatch) => {
 	return async () => {
 		try {
 			const res = await jsonServer.get('/blogposts');
-
 			dispatch({
 				type: 'get_blogposts',
 				payload: res.data,
@@ -53,7 +52,8 @@ const addBlogPost = (dispatch) => {
 };
 
 const deleteBlogPost = (dispatch) => {
-	return (id) => {
+	return async (id) => {
+		const res = await jsonServer.delete(`blogposts/${id}`);
 		dispatch({
 			type: 'delete_blogpost',
 			payload: id,
